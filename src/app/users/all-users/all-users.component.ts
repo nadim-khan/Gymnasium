@@ -1,12 +1,12 @@
 import { Component,  OnDestroy,  OnInit,  ViewChild } from '@angular/core';
 import { UsersService } from '../users.service';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { AuthService } from '../../auth/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 
 export interface UserData {
   _id: string;

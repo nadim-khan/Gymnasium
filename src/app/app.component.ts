@@ -2,10 +2,10 @@ import { Component, ViewChild, HostListener, OnInit, OnDestroy, HostBinding, Inj
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatLegacySlideToggleChange as MatSlideToggleChange } from '@angular/material/legacy-slide-toggle';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
 import { UntypedFormBuilder, Validators, UntypedFormGroup, UntypedFormControl, AbstractControl, ValidationErrors } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import {OverlayContainer} from '@angular/cdk/overlay';
 
 import { User } from './auth/user';
