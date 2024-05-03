@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild,  } from '@angular/router';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoleGuard implements CanActivate, CanActivateChild {
+export class RoleGuard  {
   canActivate() {
     return true;
   }
