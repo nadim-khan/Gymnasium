@@ -28,42 +28,41 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginDialogComponent,
-    RegisterDialogComponent,
-    HomeComponent,
-    ContactComponent,
-    FeeStructureComponent,
-    BroadcastDialogComponent,
-    AddFeeDialogComponent,
-    ShowNotificationComponent,
-    GymViewComponent,
-    LoaderComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader : {
-        provide : TranslateLoader,
-        useFactory : HttpLoaderFactory,
-        deps: [ HttpClient ]
-      }
-    }),
-    FormsModule,
-    MaterialModule,
-    ProductsModule,
-    UsersModule,
-    TrainersModule,
-    MatCarouselModule.forRoot(),
-  ],
-  entryComponents: [LoginDialogComponent, RegisterDialogComponent, BroadcastDialogComponent, AddFeeDialogComponent ],
-  providers: [ { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginDialogComponent,
+        RegisterDialogComponent,
+        HomeComponent,
+        ContactComponent,
+        FeeStructureComponent,
+        BroadcastDialogComponent,
+        AddFeeDialogComponent,
+        ShowNotificationComponent,
+        GymViewComponent,
+        LoaderComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        FormsModule,
+        MaterialModule,
+        ProductsModule,
+        UsersModule,
+        TrainersModule,
+        MatCarouselModule.forRoot(),
+    ],
+    providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

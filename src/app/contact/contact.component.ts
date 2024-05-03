@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormControl} from '@angular/forms';
+import { FormBuilder, Validators, UntypedFormGroup, UntypedFormControl} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GeneralService } from '../services/general.service';
 
@@ -18,10 +18,10 @@ export class ContactComponent implements OnInit, OnChanges {
     private snackBar: MatSnackBar
   ) { }
 
-  queryData = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl(this.currentUserEmail, [Validators.required, Validators.email]),
-    queryDetail: new FormControl('', [Validators.required, Validators.minLength(10)]),
+  queryData = new UntypedFormGroup({
+    username: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+    email: new UntypedFormControl(this.currentUserEmail, [Validators.required, Validators.email]),
+    queryDetail: new UntypedFormControl('', [Validators.required, Validators.minLength(10)]),
   });
 
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -113,10 +113,10 @@ export class AddFeeDialogComponent {
     this.dialogRef.disableClose = true;
   }
 
-  feeData = new FormGroup({
-    subscription: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    description: new FormControl(''),
-    amount: new FormControl('', [Validators.required, Validators.min(0)]),
+  feeData = new UntypedFormGroup({
+    subscription: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+    description: new UntypedFormControl(''),
+    amount: new UntypedFormControl('', [Validators.required, Validators.min(0)]),
   });
 
   get f() {

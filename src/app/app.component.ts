@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, Validators, FormGroup, FormControl, AbstractControl, ValidationErrors } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup, UntypedFormControl, AbstractControl, ValidationErrors } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {OverlayContainer} from '@angular/cdk/overlay';
 
@@ -395,9 +395,9 @@ export class LoginDialogComponent {
     this.dialogRef.disableClose = true;
   }
 
-  loginData = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
+  loginData = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required]),
   });
   get f() {
     return this.loginData.controls;
@@ -436,7 +436,7 @@ export class RegisterDialogComponent {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     public dialogRef: MatDialogRef<RegisterDialogComponent>,
     private http: HttpClient
@@ -444,21 +444,21 @@ export class RegisterDialogComponent {
     this.dialogRef.disableClose = true;
   }
 
-  registrationData = new FormGroup({
-    profilePic: new FormControl(''),
-    fileSource: new FormControl(''),
-    file: new FormControl(''),
-    username: new FormControl('', [Validators.required, Validators.minLength(3), this.cannotContainSpace]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    repeatPassword: new FormControl('', [Validators.required, this.passwordMatch]),
+  registrationData = new UntypedFormGroup({
+    profilePic: new UntypedFormControl(''),
+    fileSource: new UntypedFormControl(''),
+    file: new UntypedFormControl(''),
+    username: new UntypedFormControl('', [Validators.required, Validators.minLength(3), this.cannotContainSpace]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required]),
+    repeatPassword: new UntypedFormControl('', [Validators.required, this.passwordMatch]),
   });
 
   get f() {
     return this.registrationData.controls;
   }
 
-  cannotContainSpace(control: FormControl) {
+  cannotContainSpace(control: UntypedFormControl) {
     //    if ((control.value).indexOf(' ') >= 0) {
     //      return {
     //        cannotContainSpace: true
@@ -467,7 +467,7 @@ export class RegisterDialogComponent {
     return null;
   }
 
-  passwordMatch(control: FormControl) {
+  passwordMatch(control: UntypedFormControl) {
     const password = control.root.get('password');
     return password && control.value !== password.value ? {
       passwordMatch: true
@@ -554,18 +554,18 @@ export class BroadcastDialogComponent {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     public dialogRef: MatDialogRef<BroadcastDialogComponent>
   ) {
     this.dialogRef.disableClose = true;
    }
 
-  broadcastData = new FormGroup({
-    message: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    type: new FormControl('', [Validators.required]),
-    fromDate: new FormControl('', [Validators.required]),
-    toDate: new FormControl('', [Validators.required]),
+  broadcastData = new UntypedFormGroup({
+    message: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+    type: new UntypedFormControl('', [Validators.required]),
+    fromDate: new UntypedFormControl('', [Validators.required]),
+    toDate: new UntypedFormControl('', [Validators.required]),
   });
 
   get f() {
@@ -603,7 +603,7 @@ export class ShowNotificationComponent {
   currentMailDetails;
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     private general: GeneralService,
     public dialogRef: MatDialogRef<BroadcastDialogComponent>, @Inject(MAT_DIALOG_DATA) public data
